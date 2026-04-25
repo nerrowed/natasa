@@ -40,6 +40,7 @@ toko-listrik-natasa/
 
 ## Local SEO Rules
 
+- Set `NEXT_PUBLIC_SITE_URL` to the exact canonical domain used in Google Search Console, for example `https://tokolistrikpalembang.com`.
 - Replace the placeholder Google URL with the real Google Business Profile or Maps URL.
 - Keep NAP data exact: business name, address, phone, opening hours, and website must match Google Business Profile.
 - Add review/rating schema only when the ratings are real, visible on-page, and sourced from a compliant first-party review system.

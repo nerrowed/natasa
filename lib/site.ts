@@ -1,4 +1,6 @@
-export const siteUrl = "https://tokolistriknatasa.co.id";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tokolistrikpalembang.com";
+
+export const siteUrl = rawSiteUrl.replace(/\/$/, "");
 export const defaultPhone = "+62-711-000-000";
 export const whatsappNumber = defaultPhone.replace(/\D/g, "");
 
