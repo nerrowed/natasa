@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/verify-static-output.js",
+    "postbuild": "node scripts/prepare-hostinger-output.js",
     "start": "node server.js",
     "lint": "next lint"
   },
