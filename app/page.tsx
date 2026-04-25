@@ -91,7 +91,6 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="hero__aside hero__aside--quiet" aria-label="Informasi singkat toko">
-            <p className="eyebrow">Toko terverifikasi</p>
             <h2>{primaryLocation.name}</h2>
             <p>{primaryLocation.shortAddress}</p>
             <p>
