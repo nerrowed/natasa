@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import "./globals.css";
-
-const siteUrl = "https://tokolistriknatasa.co.id";
+import { globalCss } from "@/app/inline-css";
+import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,6 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: globalCss }} />
+      </head>
       <body>{children}</body>
     </html>
   );
