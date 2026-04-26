@@ -6,18 +6,29 @@ import {
   primaryLocation,
   storeLocations
 } from "@/lib/locations";
+import { homeDescription, mergeKeywords, SEO_TITLE } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
 const businessPhone = primaryLocation.phone;
 const businessWhatsapp = businessPhone.replace(/\D/g, "");
 
 export const metadata: Metadata = {
-  title: "Toko Listrik Palembang | Natasa Grosir Murah",
-  description:
-    "Cari alat listrik murah di Palembang? Natasa siap grosir, ecer, dan pengiriman cepat untuk proyek rumah, toko, hingga industri.",
-  keywords: businessKeywords,
+  title: SEO_TITLE,
+  description: homeDescription,
+  keywords: mergeKeywords(businessKeywords, ["natasa", "toko listrik mesjid lama"]),
   alternates: {
     canonical: "/"
+  },
+  openGraph: {
+    title: SEO_TITLE,
+    description: homeDescription,
+    url: siteUrl,
+    type: "website"
+  },
+  twitter: {
+    card: "summary",
+    title: SEO_TITLE,
+    description: homeDescription
   }
 };
 
@@ -53,10 +64,24 @@ const localBusinessJsonLd = {
   }))
 };
 
+const homeBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "toko listrik palembang",
+      item: siteUrl
+    }
+  ]
+};
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd} />
+      <JsonLd data={homeBreadcrumbJsonLd} />
       <header className="site-header">
         <a className="brand" href="/" aria-label="Toko Listrik Natasa">
           <span>Natasa</span>

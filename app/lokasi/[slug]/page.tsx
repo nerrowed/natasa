@@ -6,6 +6,7 @@ import {
   getLocationJsonLd,
   storeLocations
 } from "@/lib/locations";
+import { getLocationDescription, getLocationKeywords, SEO_TITLE } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 
 type LocationPageProps = {
@@ -30,23 +31,25 @@ export async function generateMetadata({
     return {};
   }
 
+  const locationDescription = getLocationDescription(location);
+
   return {
-    title: `${location.name} | Toko Listrik Palembang`,
-    description: `${location.name} di ${location.shortAddress}. ${location.description}`,
-    keywords: [
-      location.name,
-      ...location.keywords,
-      "toko listrik Palembang",
-      "alat listrik Palembang"
-    ],
+    title: SEO_TITLE,
+    description: locationDescription,
+    keywords: getLocationKeywords(location),
     alternates: {
       canonical: `/lokasi/${location.slug}`
     },
     openGraph: {
-      title: `${location.name} | Toko Listrik Palembang`,
-      description: location.description,
+      title: SEO_TITLE,
+      description: locationDescription,
       url: `${siteUrl}/lokasi/${location.slug}`,
       type: "website"
+    },
+    twitter: {
+      card: "summary",
+      title: SEO_TITLE,
+      description: locationDescription
     }
   };
 }
@@ -61,10 +64,35 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   const jsonLd = getLocationJsonLd(location);
   const locationWhatsapp = location.phone.replace(/\D/g, "");
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "toko listrik palembang",
+        item: siteUrl
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "lokasi toko listrik",
+        item: `${siteUrl}/toko-listrik-palembang`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: location.name,
+        item: `${siteUrl}/lokasi/${location.slug}`
+      }
+    ]
+  };
 
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <header className="site-header">
         <a className="brand" href="/" aria-label="Toko Listrik Natasa">
           <span>Natasa</span>

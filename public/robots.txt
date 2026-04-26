@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tokolistrikpalembang.com/sitemap.xml
-Host: https://tokolistrikpalembang.com
+Host: tokolistrikpalembang.com

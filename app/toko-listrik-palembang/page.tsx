@@ -1,21 +1,31 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { storeLocations } from "@/lib/locations";
+import { listingDescription, mergeKeywords, SEO_TITLE } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Toko Listrik Palembang Terdekat dan Terlengkap",
-  description:
-    "Cari toko listrik Palembang? Temukan lokasi toko alat listrik di Mesjid Lama, Pasar 16, Ilir Timur I, dan Sumatera Selatan.",
-  keywords: [
-    ...businessKeywords,
+  title: SEO_TITLE,
+  description: listingDescription,
+  keywords: mergeKeywords(businessKeywords, [
     "toko listrik Mesjid Lama",
     "toko listrik Pasar 16",
     "toko listrik 16 Ilir",
     "toko listrik Ilir Timur I"
-  ],
+  ]),
   alternates: {
     canonical: "/toko-listrik-palembang"
+  },
+  openGraph: {
+    title: SEO_TITLE,
+    description: listingDescription,
+    url: `${siteUrl}/toko-listrik-palembang`,
+    type: "website"
+  },
+  twitter: {
+    card: "summary",
+    title: SEO_TITLE,
+    description: listingDescription
   }
 };
 
@@ -38,10 +48,30 @@ const collectionJsonLd = {
   }
 };
 
+const listingBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "toko listrik palembang",
+      item: siteUrl
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "lokasi toko listrik",
+      item: `${siteUrl}/toko-listrik-palembang`
+    }
+  ]
+};
+
 export default function TokoListrikPalembangPage() {
   return (
     <>
       <JsonLd data={collectionJsonLd} />
+      <JsonLd data={listingBreadcrumbJsonLd} />
       <header className="site-header">
         <a className="brand" href="/" aria-label="Toko Listrik Natasa">
           <span>Natasa</span>
