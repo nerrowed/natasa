@@ -46,7 +46,7 @@ async function fetchSanity<T>(query: string): Promise<T[] | null> {
   }
 
   try {
-    const rows = await sanityClient.fetch<T[]>(query, {}, { next: { revalidate: 3600 } });
+    const rows = await sanityClient.fetch<T[]>(query, {}, { cache: "no-store" });
     return Array.isArray(rows) && rows.length > 0 ? rows : null;
   } catch {
     return null;
