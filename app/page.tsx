@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
+import { articlePages } from "@/lib/articles";
+import { brandPages } from "@/lib/brands";
 import { stockGroups } from "@/lib/catalog";
 import {
   getLocationJsonLd,
@@ -147,11 +149,11 @@ export default function HomePage() {
       <main>
         <article className="hero">
           <div className="hero__content">
-            <p className="eyebrow">Distributor komponen listrik Sumatera Selatan</p>
-            <h1>Toko Listrik Natasa - Pusat Grosir Alat Listrik Palembang</h1>
+            <p className="eyebrow">Toko listrik terdekat dan terlengkap di Palembang</p>
+            <h1>Toko Listrik Terdekat dan Toko Listrik Palembang - Natasa Mesjid Lama</h1>
             <p>
-              Pusat alat listrik di Jalan Mesjid Lama untuk kebutuhan rumah,
-              toko, teknisi, kontraktor, dan pengadaan proyek di Palembang.
+              Natasa adalah toko listrik Palembang di Jalan Mesjid Lama untuk
+              kebutuhan rumah, toko, teknisi, kontraktor, dan pengadaan proyek.
             </p>
             <div className="hero__actions">
               <a className="button button--primary" href={`https://wa.me/${businessWhatsapp}`}>
@@ -175,11 +177,12 @@ export default function HomePage() {
 
         <section id="stok" className="section section--compact" aria-labelledby="stok-title">
           <div className="section__heading">
-            <p className="eyebrow">Toko alat listrik terdekat dan terlengkap</p>
+            <p className="eyebrow">Toko listrik lengkap terdekat</p>
             <h2 id="stok-title">Stok Komponen Listrik yang Sering Dicari</h2>
             <p>
               Kabel, MCB, panel, lampu LED, saklar, stop kontak, dan kebutuhan
-              instalasi tersedia untuk ecer, grosir, dan proyek.
+              instalasi tersedia untuk pembeli yang mencari toko listrik
+              terdekat, ecer, grosir, dan proyek.
             </p>
           </div>
           <div className="compact-grid">
@@ -233,14 +236,68 @@ export default function HomePage() {
           </aside>
         </section>
 
+        <section className="section section--split" aria-labelledby="brand-title">
+          <article>
+            <p className="eyebrow">Brand alat listrik populer</p>
+            <h2 id="brand-title">Halaman Khusus Brand Besar di Toko Listrik Natasa</h2>
+            <p>
+              Untuk membantu pembeli yang mencari merek tertentu di toko listrik
+              terdekat Palembang, Natasa menyiapkan halaman brand dengan deskripsi
+              unik, kategori produk, dan panduan cek stok.
+            </p>
+            <div className="info-grid info-grid--compact">
+              {brandPages.map((brand) => (
+                <article className="info-card" key={brand.slug}>
+                  <h3>
+                    <a href={`/brand/${brand.slug}`}>{brand.name} Palembang</a>
+                  </h3>
+                  <p>{brand.description}</p>
+                </article>
+              ))}
+            </div>
+          </article>
+          <aside className="contact-panel" aria-label="Brand di Toko Listrik Natasa">
+            <h3>Cari Brand Tertentu?</h3>
+            <p>
+              Sebutkan merek, tipe produk, jumlah, dan foto barang jika ada agar
+              tim Natasa bisa mengecek stok lebih cepat.
+            </p>
+            <a className="button button--primary" href={`https://wa.me/${businessWhatsapp}`}>
+              Tanya Stok Brand
+            </a>
+          </aside>
+        </section>
+
+        <section className="section" aria-labelledby="artikel-title">
+          <div className="section__heading">
+            <p className="eyebrow">Konten edukasi listrik</p>
+            <h2 id="artikel-title">Panduan Sebelum Membeli Alat Listrik</h2>
+            <p>
+              Artikel edukasi membantu pembeli memahami kebutuhan sebelum membeli,
+              sekaligus memperkuat topical authority Natasa untuk pencarian alat
+              listrik dan toko listrik Palembang.
+            </p>
+          </div>
+          <div className="info-grid info-grid--compact">
+            {articlePages.map((article) => (
+              <article className="info-card" key={article.slug}>
+                <h3>
+                  <a href={`/artikel/${article.slug}`}>{article.h1}</a>
+                </h3>
+                <p>{article.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="lokasi" className="section section--split" aria-labelledby="lokasi-title">
           <article>
             <p className="eyebrow">Local SEO Palembang</p>
             <h2 id="lokasi-title">Toko Listrik Palembang di Jalan Mesjid Lama</h2>
             <p>
-              Toko Listrik Natasa melayani pembelian alat listrik untuk rumah,
-              toko, teknisi, reseller, dan proyek dari kawasan 16 Ilir, Ilir
-              Timur I, Palembang.
+              Toko Listrik Natasa melayani pembeli yang mencari toko listrik
+              terdekat dan toko listrik Palembang dari kawasan 16 Ilir, Ilir
+              Timur I, Mesjid Lama, Air Mancur, dan Pasar 16.
             </p>
             <div className="inline-actions">
               <a className="button button--primary" href={`tel:${businessPhone}`}>

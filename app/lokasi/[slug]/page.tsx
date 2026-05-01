@@ -71,6 +71,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   const jsonLd = getLocationJsonLd(location);
   const locationWhatsapp = location.phone.replace(/\D/g, "");
+  const isNatasa = location.slug === "toko-listrik-natasa-mesjid-lama";
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -172,6 +173,39 @@ export default async function LocationPage({ params }: LocationPageProps) {
             </a>
           </aside>
         </section>
+
+        {isNatasa ? (
+          <section className="section section--split" aria-labelledby="terdekat-title">
+            <article>
+              <p className="eyebrow">Toko listrik terdekat Palembang</p>
+              <h2 id="terdekat-title">Natasa di Mesjid Lama, Dekat Air Mancur dan Pasar 16</h2>
+              <p>
+                Toko Listrik Natasa menjadi pilihan untuk pembeli yang mencari
+                toko listrik terdekat di pusat Palembang, terutama area Mesjid
+                Lama, 16 Ilir, Ilir Timur I, Air Mancur, dan Pasar 16.
+              </p>
+              <p>
+                Pembeli bisa menanyakan stok kabel listrik, MCB, box panel,
+                lampu LED, saklar, stop kontak, fitting, conduit, kontaktor,
+                relay, dan perlengkapan instalasi sebelum datang ke toko.
+              </p>
+              <p>
+                Untuk kebutuhan proyek, teknisi, reseller, atau pembelian grosir,
+                hubungi Natasa terlebih dulu agar tim toko bisa mengecek jumlah
+                stok, alternatif merek, dan kebutuhan pengiriman di Palembang.
+              </p>
+            </article>
+            <aside className="contact-panel" aria-label="Keunggulan Toko Listrik Natasa">
+              <h3>Kenapa Natasa Relevan untuk “Toko Listrik Terdekat”?</h3>
+              <p>Lokasi berada di koridor toko dan grosir sekitar Jalan Mesjid Lama.</p>
+              <p>Patokan jelas: depan Bank BNI 46 Air Mancur, dekat Pasar 16 Palembang.</p>
+              <p>Produk mencakup kebutuhan rumah, toko, teknisi, kontraktor, dan proyek.</p>
+              <a className="button button--primary" href={`https://wa.me/${locationWhatsapp}`}>
+                Cek Stok via WhatsApp
+              </a>
+            </aside>
+          </section>
+        ) : null}
 
         <section className="section" aria-labelledby="layanan-title">
           <div className="section__heading">

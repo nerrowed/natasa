@@ -36,10 +36,10 @@ const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "@id": `${siteUrl}/toko-listrik-palembang#webpage`,
-  name: "Toko Listrik Palembang Terdekat dan Terlengkap",
+  name: "Toko Listrik Terdekat Palembang dan Toko Listrik Palembang",
   url: `${siteUrl}/toko-listrik-palembang`,
   description:
-    "Daftar lokasi toko listrik di Palembang dan Sumatera Selatan untuk kebutuhan alat listrik rumah, toko, grosir, dan proyek.",
+    "Daftar toko listrik terdekat Palembang untuk kebutuhan alat listrik rumah, toko, grosir, teknisi, dan proyek.",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: storeLocations.map((location, index) => ({
@@ -90,8 +90,8 @@ export default function TokoListrikPalembangPage() {
       <main>
         <article className="hero">
           <div className="hero__content">
-            <p className="eyebrow">Local SEO toko listrik Palembang</p>
-            <h1>Toko Listrik Palembang Terdekat dan Terlengkap</h1>
+            <p className="eyebrow">Toko listrik terdekat Palembang</p>
+            <h1>Toko Listrik Terdekat Palembang dan Toko Listrik Palembang</h1>
             <p>
               Temukan lokasi toko listrik di kawasan Mesjid Lama, Pasar 16,
               16 Ilir, Ilir Timur I, dan Sumatera Selatan untuk kebutuhan kabel,
@@ -160,8 +160,9 @@ export default function TokoListrikPalembangPage() {
             <p>
               Halaman ini memberi Google jalur internal menuju setiap lokasi
               toko, sekaligus menarget pencarian lokal seperti toko listrik
-              Palembang, toko listrik Mesjid Lama, toko listrik Pasar 16, dan
-              grosir alat listrik murah Palembang.
+              terdekat, toko listrik Palembang, toko listrik lengkap terdekat,
+              toko listrik Mesjid Lama, toko listrik Pasar 16, dan grosir alat
+              listrik murah Palembang.
             </p>
             <div className="info-grid info-grid--compact">
               {productCategories.map((category) => (
@@ -176,7 +177,10 @@ export default function TokoListrikPalembangPage() {
           </article>
           <aside className="contact-panel" aria-label="Keyword utama">
             <h3>Keyword Utama</h3>
+            <p>Toko listrik terdekat</p>
             <p>Toko listrik Palembang</p>
+            <p>Toko listrik terdekat terlengkap</p>
+            <p>Toko listrik lengkap terdekat</p>
             <p>Grosir alat listrik murah Palembang</p>
             <p>Distributor komponen listrik Sumatera Selatan</p>
           </aside>

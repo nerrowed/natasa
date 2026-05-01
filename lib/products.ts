@@ -19,7 +19,7 @@ export const productCategories: ProductCategory[] = [
     name: "Kabel Listrik",
     title: "Kabel Listrik Palembang | NYA, NYM, NYY - Natasa",
     description:
-      "Cari kabel listrik di Palembang? Natasa menyediakan kabel NYA, NYM, NYY, fleksibel, conduit, dan aksesoris instalasi.",
+      "Cari kabel listrik Palembang untuk rumah atau proyek? Natasa menyediakan kabel NYA, NYM, NYY, fleksibel, conduit, ducting, dan aksesoris instalasi.",
     h1: "Kabel Listrik Palembang untuk Rumah, Toko, dan Proyek",
     image: "/images/products/kabel-nym.webp",
     imageAlt: "Kabel NYM untuk instalasi listrik rumah dan proyek di Palembang",
@@ -33,7 +33,7 @@ export const productCategories: ProductCategory[] = [
     name: "MCB dan Panel",
     title: "MCB Palembang | Panel & Proteksi Listrik - Natasa",
     description:
-      "Butuh MCB di Palembang? Cek stok MCB, ELCB, MCCB, box panel, kontaktor, relay, dan komponen proteksi listrik.",
+      "Butuh MCB Palembang untuk rumah, toko, atau panel proyek? Cek stok MCB, ELCB, MCCB, box panel, kontaktor, relay, dan proteksi listrik.",
     h1: "MCB, Panel, dan Proteksi Listrik Palembang",
     image: "/images/products/mcb-schneider.webp",
     imageAlt: "MCB dan proteksi listrik untuk instalasi rumah toko dan proyek Palembang",
@@ -47,7 +47,7 @@ export const productCategories: ProductCategory[] = [
     name: "Lampu LED",
     title: "Lampu LED Palembang | Downlight & Fitting - Natasa",
     description:
-      "Natasa menyediakan lampu LED Palembang, downlight, floodlight, fitting, rumah lampu, dan kebutuhan penerangan proyek.",
+      "Cari lampu LED Palembang untuk rumah, toko, gudang, atau proyek? Natasa menyediakan downlight, floodlight, fitting, rumah lampu, dan penerangan.",
     h1: "Lampu LED Palembang untuk Rumah, Toko, dan Area Proyek",
     image: "/images/products/led-philips.webp",
     imageAlt: "Lampu LED untuk kebutuhan penerangan rumah toko dan proyek di Palembang",
@@ -61,7 +61,7 @@ export const productCategories: ProductCategory[] = [
     name: "Panel Listrik",
     title: "Panel Listrik Palembang | Box Panel & Komponen - Natasa",
     description:
-      "Cari panel listrik Palembang? Natasa membantu kebutuhan box panel, busbar, kontaktor, relay, timer, dan aksesoris panel.",
+      "Cari panel listrik Palembang untuk teknisi atau proyek? Natasa menyediakan box panel, busbar, kontaktor, relay, timer, terminal, dan aksesoris panel.",
     h1: "Panel Listrik Palembang untuk Instalasi dan Pengadaan Proyek",
     keywords: ["panel listrik Palembang", "box panel Palembang", "komponen panel listrik"],
     products: ["Box panel", "Busbar", "Kontaktor", "Relay", "Timer", "Terminal block", "Aksesoris panel"],
@@ -73,7 +73,7 @@ export const productCategories: ProductCategory[] = [
     name: "Saklar dan Stop Kontak",
     title: "Saklar Stop Kontak Palembang | Steker & Extension - Natasa",
     description:
-      "Tersedia saklar, stop kontak, steker, colokan industri, extension, dan perlengkapan listrik harian di Palembang.",
+      "Cari saklar dan stop kontak Palembang? Natasa menyediakan saklar, stop kontak, steker, colokan industri, extension, dan terminal listrik harian.",
     h1: "Saklar dan Stop Kontak Palembang untuk Kebutuhan Harian",
     keywords: ["saklar Palembang", "stop kontak Palembang", "steker listrik", "colokan industri"],
     products: ["Saklar", "Stop kontak", "Steker", "Colokan industri", "Extension", "Terminal listrik"],
