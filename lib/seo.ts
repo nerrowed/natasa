@@ -14,30 +14,30 @@ export const primarySeoKeywords = [
 ];
 
 export const homeDescription =
-  "Butuh toko listrik terdekat di Palembang? Natasa menyediakan kabel, MCB, panel, lampu LED, saklar, stop kontak, dan perlengkapan instalasi untuk rumah, toko, teknisi, kontraktor, dan proyek.";
+  "Toko Listrik Natasa Palembang menyediakan kabel, MCB, panel, lampu LED, saklar, stop kontak, dan alat listrik proyek.";
 
 export const listingDescription =
-  "Jelajahi daftar toko listrik Palembang di area Mesjid Lama, Pasar 16, 16 Ilir, Ilir Timur I, dan Sumatera Selatan lengkap dengan alamat, jam buka, kontak, rating, serta akses Google Maps.";
+  "Daftar toko listrik Palembang area Mesjid Lama, Pasar 16, 16 Ilir, dan Ilir Timur I lengkap dengan alamat, rating, dan Maps.";
 
 export function mergeKeywords(...keywordGroups: string[][]) {
   return Array.from(new Set(keywordGroups.flat().map((keyword) => keyword.trim()).filter(Boolean)));
 }
 
 export function getLocationDescription(location: StoreLocation) {
-  const localHint = location.landmark
-    ? `Dekat ${location.landmark.toLowerCase()}`
-    : `Area ${location.area}`;
+  const displayName = location.name.startsWith("Distributor dan Supplier")
+    ? "Grosir alat listrik Palembang"
+    : location.name;
 
-  return `${location.name} adalah toko listrik di ${location.shortAddress}. ${localHint}, melayani kabel listrik, MCB, panel, lampu LED, saklar, stop kontak, dan kebutuhan instalasi hingga pukul ${location.closeTime} WIB.`;
+  return `${displayName} toko listrik ${location.area}. Stok kabel, MCB, panel, lampu LED, saklar, dan stop kontak. Buka hingga ${location.closeTime} WIB.`;
 }
 
 export function getLocationTitle(location: StoreLocation) {
   const displayName = location.name.startsWith("Distributor dan Supplier")
-    ? "Distributor Grosir Alat Listrik Palembang"
+    ? "Grosir Alat Listrik Palembang"
     : location.name;
   const areaLabel = location.area.includes("PALI") ? "PALI" : location.area;
 
-  return `${displayName} - Toko Listrik ${areaLabel}`;
+  return `${displayName} | Toko Listrik ${areaLabel}`;
 }
 
 export function getLocationKeywords(location: StoreLocation) {

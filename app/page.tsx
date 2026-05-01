@@ -6,6 +6,7 @@ import {
   primaryLocation,
   storeLocations
 } from "@/lib/locations";
+import { productCategories } from "@/lib/products";
 import { homeDescription, mergeKeywords, SEO_TITLE } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
@@ -41,6 +42,19 @@ const localBusinessJsonLd = {
     latitude: -2.976073,
     longitude: 104.775431
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: primaryLocation.googleRating,
+    reviewCount: primaryLocation.googleReviewCount
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: primaryLocation.phone,
+    contactType: "sales",
+    areaServed: "ID",
+    availableLanguage: ["Indonesian"]
+  },
+  paymentAccepted: "Cash, Bank Transfer, QRIS",
   areaServed: [
     {
       "@type": "City",
@@ -53,6 +67,15 @@ const localBusinessJsonLd = {
   ],
   sameAs: [primaryLocation.mapsUrl],
   knowsAbout: businessKeywords,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Katalog alat listrik Natasa",
+    itemListElement: productCategories.map((category) => ({
+      "@type": "OfferCatalog",
+      name: category.name,
+      url: `${siteUrl}/produk/${category.slug}`
+    }))
+  },
   makesOffer: stockGroups.map((group) => ({
     "@type": "Offer",
     itemOffered: {
@@ -77,6 +100,29 @@ const homeBreadcrumbJsonLd = {
   ]
 };
 
+const homeFaq = [
+  {
+    question: "Apakah Toko Listrik Natasa melayani pembelian grosir?",
+    answer:
+      "Ya, Natasa melayani pembelian ecer, grosir, repeat order teknisi, reseller, dan kebutuhan pengadaan proyek di Palembang."
+  },
+  {
+    question: "Produk alat listrik apa saja yang tersedia?",
+    answer:
+      "Kategori yang sering dicari meliputi kabel listrik, MCB, panel, lampu LED, saklar, stop kontak, fitting, conduit, kontaktor, relay, dan aksesoris instalasi."
+  },
+  {
+    question: "Apakah bisa tanya stok lewat WhatsApp?",
+    answer:
+      "Bisa. Sebutkan nama barang, jumlah, merek atau spesifikasi, dan lokasi penggunaan agar tim toko bisa mengecek stok atau alternatif produk."
+  },
+  {
+    question: "Area layanan toko listrik Natasa di mana?",
+    answer:
+      "Fokus utama Natasa berada di Jalan Mesjid Lama, 16 Ilir, Ilir Timur I, Pasar 16, Palembang, dan melayani kebutuhan Sumatera Selatan."
+  }
+];
+
 export default function HomePage() {
   return (
     <>
@@ -89,6 +135,7 @@ export default function HomePage() {
         </a>
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="#stok">Kebutuhan</a>
+          <a href="#produk">Produk</a>
           <a href="#lokasi">Lokasi</a>
           <a href="/toko-listrik-palembang">Toko Palembang</a>
           <a className="nav-cta" href={`tel:${businessPhone}`}>
@@ -160,8 +207,23 @@ export default function HomePage() {
               hubungi toko lebih dulu agar tim bisa mengecek stok dan alternatif
               produk yang paling sesuai dengan kebutuhan lapangan.
             </p>
+            <div className="info-grid info-grid--compact">
+              {productCategories.map((category) => (
+                <article className="info-card" key={category.slug}>
+                  <h3>
+                    <a href={`/produk/${category.slug}`}>{category.name}</a>
+                  </h3>
+                  <p>{category.description}</p>
+                </article>
+              ))}
+            </div>
           </article>
           <aside className="contact-panel" aria-label="Area layanan toko listrik Natasa">
+            <img
+              src="/images/products/mcb-schneider.webp"
+              alt="MCB dan komponen proteksi listrik di Toko Listrik Natasa Palembang"
+              loading="lazy"
+            />
             <h3>Area Layanan</h3>
             <p>Jalan Mesjid Lama, 16 Ilir, Ilir Timur I, Pasar 16, Palembang.</p>
             <p>Meliputi kebutuhan rumah, toko, teknisi, reseller, dan proyek di Sumatera Selatan.</p>
@@ -215,6 +277,21 @@ export default function HomePage() {
             <a className="button button--primary" href={primaryLocation.mapsUrl}>
               Buka Profil Google
             </a>
+          </div>
+        </section>
+
+        <section className="section" aria-labelledby="faq-title">
+          <div className="section__heading">
+            <p className="eyebrow">FAQ toko listrik Palembang</p>
+            <h2 id="faq-title">Pertanyaan yang Sering Ditanyakan</h2>
+          </div>
+          <div className="faq-list">
+            {homeFaq.map((item) => (
+              <article key={item.question}>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
           </div>
         </section>
 

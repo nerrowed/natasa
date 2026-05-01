@@ -192,9 +192,24 @@ export function getLocationJsonLd(location: StoreLocation) {
     url: getLocationUrl(location),
     telephone: location.phone,
     priceRange: "Rp",
-    image: `${siteUrl}/images/toko-listrik-natasa-palembang.webp`,
+    image: `${siteUrl}/images/products/mcb-schneider.webp`,
     hasMap: location.mapsUrl,
     description: location.description,
+    aggregateRating: location.googleRating && location.googleReviewCount
+      ? {
+          "@type": "AggregateRating",
+          ratingValue: location.googleRating,
+          reviewCount: location.googleReviewCount
+        }
+      : undefined,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: location.phone,
+      contactType: "sales",
+      areaServed: "ID",
+      availableLanguage: ["Indonesian"]
+    },
+    paymentAccepted: "Cash, Bank Transfer, QRIS",
     address: {
       "@type": "PostalAddress",
       streetAddress: location.address,

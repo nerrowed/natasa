@@ -3,7 +3,7 @@ import { mergeKeywords, primarySeoKeywords } from "@/lib/seo";
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tokolistrikpalembang.com";
 
 export const siteUrl = rawSiteUrl.replace(/\/$/, "");
-export const defaultPhone = "+62-711-000-000";
+export const defaultPhone = "+62-812-7217-7300";
 export const whatsappNumber = defaultPhone.replace(/\D/g, "");
 
 export const businessKeywords = mergeKeywords(primarySeoKeywords, [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { storeLocations } from "@/lib/locations";
+import { productCategories } from "@/lib/products";
 import { LISTING_SEO_TITLE, listingDescription, mergeKeywords } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
@@ -162,6 +163,16 @@ export default function TokoListrikPalembangPage() {
               Palembang, toko listrik Mesjid Lama, toko listrik Pasar 16, dan
               grosir alat listrik murah Palembang.
             </p>
+            <div className="info-grid info-grid--compact">
+              {productCategories.map((category) => (
+                <article className="info-card" key={category.slug}>
+                  <h3>
+                    <a href={`/produk/${category.slug}`}>{category.name}</a>
+                  </h3>
+                  <p>{category.description}</p>
+                </article>
+              ))}
+            </div>
           </article>
           <aside className="contact-panel" aria-label="Keyword utama">
             <h3>Keyword Utama</h3>
