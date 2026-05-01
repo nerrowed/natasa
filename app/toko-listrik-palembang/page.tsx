@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { storeLocations } from "@/lib/locations";
-import { listingDescription, mergeKeywords, SEO_TITLE } from "@/lib/seo";
+import { LISTING_SEO_TITLE, listingDescription, mergeKeywords } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: SEO_TITLE,
+  title: {
+    absolute: LISTING_SEO_TITLE
+  },
   description: listingDescription,
   keywords: mergeKeywords(businessKeywords, [
     "toko listrik Mesjid Lama",
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
     canonical: "/toko-listrik-palembang"
   },
   openGraph: {
-    title: SEO_TITLE,
+    title: LISTING_SEO_TITLE,
     description: listingDescription,
     url: `${siteUrl}/toko-listrik-palembang`,
     type: "website"
   },
   twitter: {
     card: "summary",
-    title: SEO_TITLE,
+    title: LISTING_SEO_TITLE,
     description: listingDescription
   }
 };

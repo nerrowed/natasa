@@ -6,7 +6,11 @@ import {
   getLocationJsonLd,
   storeLocations
 } from "@/lib/locations";
-import { getLocationDescription, getLocationKeywords, SEO_TITLE } from "@/lib/seo";
+import {
+  getLocationDescription,
+  getLocationKeywords,
+  getLocationTitle
+} from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 
 type LocationPageProps = {
@@ -32,23 +36,26 @@ export async function generateMetadata({
   }
 
   const locationDescription = getLocationDescription(location);
+  const locationTitle = getLocationTitle(location);
 
   return {
-    title: SEO_TITLE,
+    title: {
+      absolute: locationTitle
+    },
     description: locationDescription,
     keywords: getLocationKeywords(location),
     alternates: {
       canonical: `/lokasi/${location.slug}`
     },
     openGraph: {
-      title: SEO_TITLE,
+      title: locationTitle,
       description: locationDescription,
       url: `${siteUrl}/lokasi/${location.slug}`,
       type: "website"
     },
     twitter: {
       card: "summary",
-      title: SEO_TITLE,
+      title: locationTitle,
       description: locationDescription
     }
   };

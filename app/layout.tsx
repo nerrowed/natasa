@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { globalCss } from "@/app/inline-css";
-import { SEO_TITLE } from "@/lib/seo";
+import { SEO_TITLE, SITE_NAME } from "@/lib/seo";
 import { businessKeywords, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: SEO_TITLE,
+  title: {
+    default: SEO_TITLE,
+    template: `%s | ${SITE_NAME}`
+  },
   description:
-    "Portal toko listrik Palembang untuk menemukan lokasi, kontak, dan ketersediaan alat listrik dari Natasa dan jaringan toko sekitar.",
+    "Portal toko listrik Palembang untuk menemukan lokasi, kontak, rating Google, dan ketersediaan kabel, MCB, panel, lampu LED, saklar, stop kontak, serta alat listrik dari Natasa dan jaringan toko sekitar.",
   keywords: businessKeywords,
   alternates: {
     canonical: "/"

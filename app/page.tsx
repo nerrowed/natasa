@@ -139,9 +139,36 @@ export default function HomePage() {
             {stockGroups.map((group) => (
               <article className="compact-item" key={group.name}>
                 <h3>{group.name}</h3>
+                <p>{group.description}</p>
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="section section--split" aria-labelledby="produk-title">
+          <article>
+            <p className="eyebrow">Produk populer</p>
+            <h2 id="produk-title">Alat Listrik untuk Rumah, Toko, Teknisi, dan Proyek</h2>
+            <p>
+              Natasa membantu pembeli mencari perlengkapan listrik dari kebutuhan
+              harian sampai pengadaan proyek: kabel instalasi, MCB dan panel,
+              lampu LED, fitting, saklar, stop kontak, pipa conduit, terminal,
+              kontaktor, relay, dan aksesoris instalasi.
+            </p>
+            <p>
+              Untuk pembelian partai, grosir, atau repeat order kontraktor,
+              hubungi toko lebih dulu agar tim bisa mengecek stok dan alternatif
+              produk yang paling sesuai dengan kebutuhan lapangan.
+            </p>
+          </article>
+          <aside className="contact-panel" aria-label="Area layanan toko listrik Natasa">
+            <h3>Area Layanan</h3>
+            <p>Jalan Mesjid Lama, 16 Ilir, Ilir Timur I, Pasar 16, Palembang.</p>
+            <p>Meliputi kebutuhan rumah, toko, teknisi, reseller, dan proyek di Sumatera Selatan.</p>
+            <a className="text-link" href="/toko-listrik-palembang">
+              Cek daftar lokasi toko listrik
+            </a>
+          </aside>
         </section>
 
         <section id="lokasi" className="section section--split" aria-labelledby="lokasi-title">
