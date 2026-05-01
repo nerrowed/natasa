@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { articlePages } from "@/lib/articles";
-import { brandPages } from "@/lib/brands";
 import { stockGroups } from "@/lib/catalog";
+import { getAllArticlePages, getAllBrandPages } from "@/lib/cms";
 import {
   getLocationJsonLd,
   primaryLocation,
@@ -125,7 +124,12 @@ const homeFaq = [
   }
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [articlePages, brandPages] = await Promise.all([
+    getAllArticlePages(),
+    getAllBrandPages()
+  ]);
+
   return (
     <>
       <JsonLd data={localBusinessJsonLd} />

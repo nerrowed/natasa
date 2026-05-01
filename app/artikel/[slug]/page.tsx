@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { articlePages, getArticleBySlug, getArticleJsonLd } from "@/lib/articles";
+import { getArticleJsonLd } from "@/lib/articles";
+import { getAllArticlePages, getArticlePageBySlug } from "@/lib/cms";
 import { mergeKeywords, primarySeoKeywords } from "@/lib/seo";
 import { businessKeywords, siteUrl, whatsappNumber } from "@/lib/site";
 
@@ -11,15 +12,16 @@ type ArticlePageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return articlePages.map((article) => ({
+export async function generateStaticParams() {
+  const pages = await getAllArticlePages();
+  return pages.map((article) => ({
     slug: article.slug
   }));
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticlePageBySlug(slug);
 
   if (!article) {
     return {};
@@ -50,7 +52,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticlePageBySlug(slug);
 
   if (!article) {
     notFound();

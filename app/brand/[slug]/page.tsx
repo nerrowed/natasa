@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { brandPages, getBrandBySlug, getBrandJsonLd } from "@/lib/brands";
+import { getBrandJsonLd } from "@/lib/brands";
+import { getAllBrandPages, getBrandPageBySlug } from "@/lib/cms";
 import { mergeKeywords, primarySeoKeywords } from "@/lib/seo";
 import { businessKeywords, siteUrl, whatsappNumber } from "@/lib/site";
 
@@ -11,15 +12,16 @@ type BrandPageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return brandPages.map((brand) => ({
+export async function generateStaticParams() {
+  const pages = await getAllBrandPages();
+  return pages.map((brand) => ({
     slug: brand.slug
   }));
 }
 
 export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const brand = getBrandBySlug(slug);
+  const brand = await getBrandPageBySlug(slug);
 
   if (!brand) {
     return {};
@@ -50,7 +52,7 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
 
 export default async function BrandLandingPage({ params }: BrandPageProps) {
   const { slug } = await params;
-  const brand = getBrandBySlug(slug);
+  const brand = await getBrandPageBySlug(slug);
 
   if (!brand) {
     notFound();

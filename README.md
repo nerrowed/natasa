@@ -52,4 +52,29 @@ toko-listrik-natasa/
 - Upload source images at high quality, then store generated `.webp` and let Next.js serve AVIF/WebP variants.
 - Keep homepage as a server component unless an interactive feature actually needs client JavaScript.
 - Use SSG/ISR for future service, brand, and area pages where content rarely changes.
+
+## Sanity CMS
+
+This site is prepared for Sanity as a headless SEO CMS. Static fallback content remains in `lib/articles.ts` and `lib/brands.ts`, but when Sanity env vars are configured the build pulls published CMS content for:
+
+- `/artikel/[slug]`
+- `/brand/[slug]`
+- homepage article/brand cards
+
+Required environment variables:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=<project-id>
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-05-01
+SANITY_API_TOKEN=<write-token-for-import-scripts-only>
+```
+
+Schema drafts live in `sanity/schemas/`. Assistant-generated content can be uploaded with:
+
+```bash
+node scripts/sanity-upsert-content.mjs content.json
+```
+
+Each JSON document should include `_type` (`article` or `brandPage`) and `slug.current`.
 # natasa
