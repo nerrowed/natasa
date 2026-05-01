@@ -141,7 +141,6 @@ export default async function HomePage() {
         </a>
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="#stok">Kebutuhan</a>
-          <a href="#produk">Produk</a>
           <a href="#brand">Brand</a>
           <a href="#artikel">Artikel</a>
           <a href="#lokasi">Lokasi</a>

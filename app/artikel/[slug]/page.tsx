@@ -92,7 +92,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <a href="/#brand">Brand</a>
           <a href="/#artikel">Artikel</a>
           <a href="/toko-listrik-palembang">Lokasi</a>
-          <a href="/produk/kabel-listrik-palembang">Produk</a>
           <a className="nav-cta" href={`https://wa.me/${whatsappNumber}`}>
             Tanya Stok
           </a>

@@ -96,7 +96,6 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
           <a href="/#brand">Brand</a>
           <a href="/#artikel">Artikel</a>
           <a href="/toko-listrik-palembang">Lokasi</a>
-          <a href="#produk">Produk</a>
           <a className="nav-cta" href={`https://wa.me/${whatsappNumber}`}>
             Tanya Stok
           </a>
