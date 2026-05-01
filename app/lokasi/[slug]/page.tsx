@@ -108,6 +108,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
         </a>
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="/">Beranda</a>
+          <a href="/#brand">Brand</a>
+          <a href="/#artikel">Artikel</a>
           <a href="/toko-listrik-palembang">Toko Palembang</a>
           <a href="#kontak">Kontak</a>
         </nav>

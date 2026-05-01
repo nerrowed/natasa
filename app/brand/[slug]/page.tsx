@@ -89,6 +89,8 @@ export default async function BrandLandingPage({ params }: BrandPageProps) {
         </a>
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="/">Beranda</a>
+          <a href="/#brand">Brand</a>
+          <a href="/#artikel">Artikel</a>
           <a href="/toko-listrik-palembang">Lokasi</a>
           <a href="#produk">Produk</a>
           <a className="nav-cta" href={`https://wa.me/${whatsappNumber}`}>

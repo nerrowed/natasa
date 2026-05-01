@@ -142,6 +142,8 @@ export default async function HomePage() {
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="#stok">Kebutuhan</a>
           <a href="#produk">Produk</a>
+          <a href="#brand">Brand</a>
+          <a href="#artikel">Artikel</a>
           <a href="#lokasi">Lokasi</a>
           <a href="/toko-listrik-palembang">Toko Palembang</a>
           <a className="nav-cta" href={`tel:${businessPhone}`}>
@@ -240,7 +242,7 @@ export default async function HomePage() {
           </aside>
         </section>
 
-        <section className="section section--split" aria-labelledby="brand-title">
+        <section id="brand" className="section section--split" aria-labelledby="brand-title">
           <article>
             <p className="eyebrow">Brand alat listrik populer</p>
             <h2 id="brand-title">Halaman Khusus Brand Besar di Toko Listrik Natasa</h2>
@@ -272,7 +274,7 @@ export default async function HomePage() {
           </aside>
         </section>
 
-        <section className="section" aria-labelledby="artikel-title">
+        <section id="artikel" className="section" aria-labelledby="artikel-title">
           <div className="section__heading">
             <p className="eyebrow">Konten edukasi listrik</p>
             <h2 id="artikel-title">Panduan Sebelum Membeli Alat Listrik</h2>

@@ -82,6 +82,8 @@ export default function TokoListrikPalembangPage() {
         </a>
         <nav className="site-nav" aria-label="Navigasi utama">
           <a href="/">Beranda</a>
+          <a href="/#brand">Brand</a>
+          <a href="/#artikel">Artikel</a>
           <a href="#lokasi">Lokasi</a>
           <a href="#keyword">Keyword</a>
         </nav>
